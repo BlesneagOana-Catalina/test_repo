@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Carbon\Carbon; 
 use Illuminate\Support\Facades\Input;
 Route::get('/', function () {
 	$contents=null;
@@ -28,6 +28,6 @@ Route::get('/', function () {
 });
 Route::post('add_user', function () {
 	
-    Storage::put('file.json',  json_encode(array(Input::all(),"date"=>\Carbon::now())));
+    Storage::put('file.json',  json_encode(array(Input::all(),"date"=>Carbon::now())));
 	echo "Succcess!";
 });
