@@ -11,6 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Input;
 Route::get('/', function () {
-    return view('welcome');
+	$contents=null;
+	$exists = Storage::exists('file.json');
+	if($exists)
+	{
+	$contents = collect(json_decode(Storage::get('file.json')));
+	$data=array("contents"=>$contents);
+    return view('add')->with($data);
+	}else{
+		return view('add');
+	}
+	
+});
+Route::post('add_user', function () {
+	
+    Storage::put('file.json',  json_encode(array(Input::all(),"date"=>\Carbon::now())));
+	echo "Succcess!";
 });
