@@ -21,7 +21,7 @@ Route::get('/', function () {
 	$data=array("contents"=>$contents);
     return view('add')->with($data);
 	}else{
-		$data=array("contents"=>null);
+		$data=array("contents"=>collect(null));
 		return view('add',$data);
 	}
 	
