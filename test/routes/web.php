@@ -27,7 +27,6 @@ Route::get('/', function () {
 	
 });
 Route::post('add_user', function () {
-	
-    Storage::put('file.json',  json_encode(array(Input::all(),"date"=>Carbon::now())));
+    Storage::put('file.json',  json_encode(array(Input::all())));
 	echo "Succcess!";
 });

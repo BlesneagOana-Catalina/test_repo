@@ -288,6 +288,8 @@ $(document).ready(function() {
 	</div>
 	<br>
 	
+
+	
 	<div class="row">
 	<div class="col-md-3 col-md-offset-1">
 	Product price:
@@ -299,6 +301,16 @@ $(document).ready(function() {
 	<br>
 	
 
+	<div class="row">
+	<div class="col-md-3 col-md-offset-1"
+	</div>
+	<div class="col-md-7">
+	{{ Form::input('hidden', 'date', Carbon\Carbon::now(), ['class' => 'form-control']) }}
+	</div>
+	</div>
+	<br>
+	
+	
 	<div class="row">
 	<div class="col-md-3 col-md-offset-4">
 	{{Form::submit('Add product!',['class'=>'form-control btn-primary'])}}
@@ -315,7 +327,7 @@ $(document).ready(function() {
 	
 	
 	
-	@unless($contents!==null)
+	
 	<div class="col-sm-8 col-sm-offset-1">
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
   
@@ -334,10 +346,15 @@ $(document).ready(function() {
     @foreach ($contents as $content)
 	<tr>      
 	  <td>{{ $content->product_name }}</td>
-	  <td>{{ $content->product_quantity }}</td>
+	  <td>{{ $content->quantity_in_stock }}</td>
 	  <td>{{ $content->product_price }}</td>
-	  <td>{{ $content->date }}</td>
-	  <td>{{ ($content->product_price)*( $content->product_quantity )}}</td>
+	  <td> 
+	 
+	 {{ $content->date }}
+	  
+	  
+	  </td>
+	  <td>{{ ($content->product_price)*( $content->quantity_in_stock )}}</td>
 	  <td>
 	 </td>
 	</tr>   
@@ -348,6 +365,6 @@ $(document).ready(function() {
    
 	</table>
 	</div>
-	@endunless
+	
 	</body>
 </html>
