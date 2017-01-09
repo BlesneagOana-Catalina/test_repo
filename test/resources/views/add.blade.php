@@ -315,7 +315,7 @@ $(document).ready(function() {
 	
 	
 	
-	$unless($contents)
+	@unless($contents!==null)
 	<div class="col-sm-8 col-sm-offset-1">
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
   
